@@ -26,3 +26,6 @@ def topStack(Stack):
 		return
 	else:
 		return Stack[Stack.top]
+
+
+#TODO: Linked List implementation of stacks
