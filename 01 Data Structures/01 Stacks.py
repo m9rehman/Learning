@@ -1,5 +1,7 @@
 #Stack implementation using array
-#	Each of these takes O(1) time since we are using arrays
+#	Each of these stack operations takes O(1) time 
+#	Stack.top is the top of the array
+
 def isStackEmpty(Stack):
 	if Stack.top is None:
 		return True
@@ -18,3 +20,9 @@ def popStack(Stack):
 		return Stack[Stack.top]
 		Stack.top -= 1
 
+def topStack(Stack):
+	if isStackEmpty(Stack):
+		print("Error: underflow")
+		return
+	else:
+		return Stack[Stack.top]
