@@ -1,22 +1,29 @@
 def mergesort(array):
-	if len(array)> 1:
-		middle = len(array)/2
-		leftArray = array[:middle]
-		rightArray = array[middle:]
+	results= []
+	n = len(array)
+	if n < 2:
+		return array
+	else:
+		middle = int(len(array)/2)
+		leftSorted = mergesort(array[:middle])
+		rightSorted = mergesort(array[middle:])
+		return merge(leftSorted,rightSorted)
 
-		leftSorted = mergesort(leftArray)
-		rightSorted = mergesort(rightArray)
-		return merge(leftSorted, rightSorted, len(array))
 
 
-def merge(lSorted,rSorted,n):
-	li,ri=0
-	sortedArray = []
-	for i in range(0,n):
-		if (lSorted[li] <= rSorted[ri]):
-			sortedArray[i] = lSorted[li]
-			li += 1
+def merge(l,r):
+	results = []
+	i=0
+	j=0
+	while i < len(l) and j < len(r):
+		if l[i] < r[i]:
+			results.append(l[i])
+			i+=1 
 		else:
-			sortedArray[i] = rSorted[ri]
-			ri += 1
-	return sortedArray
+			results.append(r[j])
+			j+=1
+	#Copying in any other results
+	results += l[i:]
+	results += r[j:]
+	return results
+
