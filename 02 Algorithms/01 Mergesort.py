@@ -7,16 +7,16 @@ def mergesort(array):
 		middle = int(len(array)/2)
 		leftSorted = mergesort(array[:middle])
 		rightSorted = mergesort(array[middle:])
-		return merge(leftSorted,rightSorted)
+		return merge(leftSorted,rightSorted,n)
 
 
 
-def merge(l,r):
+def merge(l,r,n):
 	results = []
 	i=0
 	j=0
 	while i < len(l) and j < len(r):
-		if l[i] < r[i]:
+		if l[i] < r[j]:
 			results.append(l[i])
 			i+=1 
 		else:
